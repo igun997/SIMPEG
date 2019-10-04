@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <style>
+    table,
+    td,
+    th {
+      border: 1px solid black;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    th {
+      height: 50px;
+      text-align: center ;
+    }
+  </style>
+</head>
+
+<body>
+  <p style="text-weight:bold;text-align:left;margin-bottom:-60px"><b>{tanggal_cetak}</b></p>
+  <p style="text-weight:bold;text-align:right"><b>CV LOVA</b></p>
+  <hr>
+  <hr>
+  <h2 style="text-align:center">Laporan Penilaian</h2>
+  <hr>
+  <center>
+  <table>
+    <tr>
+      <th>No</th>
+      <th>Nama Karyawan</th>
+      <th>Nomor Karyawan</th>
+      <th>Jabatan</th>
+      <th>Total Terima</th>
+    </tr>
+    {penggajian}
+    <tr>
+      <td>{no}</td>
+      <td>{nama_karyawan}</td>
+      <td>{nomor_karyawan}</td>
+      <td>{jabatan}</td>
+      <td>{total_terima}</td>
+    </tr>
+    {/penggajian}
+  </table>
+  <table border="0" style="width: auto;border: 0px;">
+    <tr style="border: 0px;">
+      <td style="border: 0px;"><b>Skor Akhir</b></td>
+      <td style="border: 0px;">:</td>
+      <td style="border: 0px;">{skor_akhir}</td>
+    </tr>
+    <tr style="border: 0px;">
+      <td style="border: 0px;"><b>Rank</b></td>
+      <td style="border: 0px;">:</td>
+      <td style="border: 0px;">{rank}</td>
+    </tr>
+    <tr style="border: 0px;">
+      <td style="border: 0px;"><b>Kesimpulan</b></td>
+      <td style="border: 0px;">:</td>
+      <td style="border: 0px;">{kesimpulan}</td>
+    </tr>
+  </table>
+
+  <!-- <p style="text-align:right">Bandung, {tanggal_cetak}</p>
+  <p style="text-align:right">Manajer</p>
+  <br>
+  <br>
+  <p style="text-align:right">Rizki Setiawan</p> -->
+</center>
+</body>
+
+</html>

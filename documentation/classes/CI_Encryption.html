@@ -1,0 +1,1555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta charset="utf-8"/>
+    <title>API Documentation</title>
+    <meta name="author" content=""/>
+    <meta name="description" content=""/>
+
+    <link href="../css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/prism.css" rel="stylesheet" media="all"/>
+    <link href="../css/template.css" rel="stylesheet" media="all"/>
+    
+    <!--[if lt IE 9]>
+    <script src="../js/html5.js"></script>
+    <![endif]-->
+    <script src="../js/jquery-1.11.0.min.js"></script>
+    <script src="../js/ui/1.10.4/jquery-ui.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery.smooth-scroll.js"></script>
+    <script src="../js/prism.min.js"></script>
+    <!-- TODO: Add http://jscrollpane.kelvinluck.com/ to style the scrollbars for browsers not using webkit-->
+    <script type="text/javascript">
+    function loadExternalCodeSnippets() {
+        Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
+            var src = pre.getAttribute('data-src');
+            var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
+            var language = 'php';
+
+            var code = document.createElement('code');
+            code.className = 'language-' + language;
+
+            pre.textContent = '';
+
+            code.textContent = 'Loading…';
+
+            pre.appendChild(code);
+
+            var xhr = new XMLHttpRequest();
+
+            xhr.open('GET', src, true);
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
+
+                    if (xhr.status < 400 && xhr.responseText) {
+                        code.textContent = xhr.responseText;
+
+                        Prism.highlightElement(code);
+                    }
+                    else if (xhr.status >= 400) {
+                        code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                    }
+                    else {
+                        code.textContent = '✖ Error: File does not exist or is empty';
+                    }
+                }
+            };
+
+            xhr.send(null);
+        });
+    }
+
+    $(document).ready(function(){
+        loadExternalCodeSnippets();
+    });
+    $('#source-view').on('shown', function () {
+        loadExternalCodeSnippets();
+    })
+</script>
+
+    <link rel="shortcut icon" href="../images/favicon.ico"/>
+    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="../images/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="../images/apple-touch-icon-114x114.png"/>
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <i class="icon-ellipsis-vertical"></i>
+            </a>
+            <a class="brand" href="../index.html">API Documentation</a>
+
+            <div class="nav-collapse">
+                <ul class="nav pull-right">
+                                        <li class="dropdown" id="charts-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Charts <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../graphs/class.html">
+                                    <i class="icon-list-alt"></i>&#160;Class hierarchy diagram
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" id="reports-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Reports <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../reports/errors.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">191</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/markers.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">12</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/deprecated.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <i class="icon-list-alt"></i>&#160;Deprecated <span class="label label-info pull-right">19</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--<div class="go_to_top">-->
+    <!--<a href="#___" style="color: inherit">Back to top&#160;&#160;<i class="icon-upload icon-white"></i></a>-->
+    <!--</div>-->
+</div>
+
+<div id="___" class="container-fluid">
+        <section class="row-fluid">
+        <div class="span2 sidebar">
+                                <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-951456"></a>
+                                <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
+            </div>
+            <div id="namespace-951456" class="accordion-body collapse in">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/SessionHandlerInterface.html">SessionHandlerInterface</a></li>
+                                                                                                    <li class="class"><a href="../classes/Api.html">Api</a></li>
+                                                    <li class="class"><a href="../classes/CI_Benchmark.html">CI_Benchmark</a></li>
+                                                    <li class="class"><a href="../classes/CI_Cache.html">CI_Cache</a></li>
+                                                    <li class="class"><a href="../classes/CI_Cache_apc.html">CI_Cache_apc</a></li>
+                                                    <li class="class"><a href="../classes/CI_Cache_dummy.html">CI_Cache_dummy</a></li>
+                                                    <li class="class"><a href="../classes/CI_Cache_file.html">CI_Cache_file</a></li>
+                                                    <li class="class"><a href="../classes/CI_Cache_memcached.html">CI_Cache_memcached</a></li>
+                                                    <li class="class"><a href="../classes/CI_Cache_redis.html">CI_Cache_redis</a></li>
+                                                    <li class="class"><a href="../classes/CI_Cache_wincache.html">CI_Cache_wincache</a></li>
+                                                    <li class="class"><a href="../classes/CI_Calendar.html">CI_Calendar</a></li>
+                                                    <li class="class"><a href="../classes/CI_Cart.html">CI_Cart</a></li>
+                                                    <li class="class"><a href="../classes/CI_Config.html">CI_Config</a></li>
+                                                    <li class="class"><a href="../classes/CI_Controller.html">CI_Controller</a></li>
+                                                    <li class="class"><a href="../classes/CI_DB.html">CI_DB</a></li>
+                                                    <li class="class"><a href="../classes/CI_DB_Cache.html">CI_DB_Cache</a></li>
+                                                    <li class="class"><a href="../classes/CI_DB_cubrid_driver.html">CI_DB_cubrid_driver</a></li>
+                                                    <li class="class"><a href="../classes/CI_DB_cubrid_forge.html">CI_DB_cubrid_forge</a></li>
+                                                    <li class="class"><a href="../classes/CI_DB_cubrid_result.html">CI_DB_cubrid_result</a></li>
+                                                    <li class="class"><a href="../classes/CI_DB_cubrid_utility.html">CI_DB_cubrid_utility</a></li>
+                                                    <li class="class"><a href="../classes/CI_DB_driver.html">CI_DB_driver</a></li>
+                                                    <li class="class"><a href="../classes/CI_DB_forge.html">CI_DB_forge</a></li>
+                                                    <li class="class"><a href="../classes/CI_DB_ibase_driver.html">CI_DB_ibase_driver</a></li>
+                                                    <li class="class"><a href="../classes/CI_DB_ibase_forge.html">CI_DB_ibase_forge</a></li>
+                                                    <li class="class"><a href="../classes/CI_DB_ibase_result.html">CI_DB_ibase_result</a></li>
+                                                    <li class="class"><a href="../classes/CI_DB_ibase_utility.html">CI_DB_ibase_utility</a></li>
+                                                    <li class="class"><a href="../classes/CI_DB_mssql_driver.html">CI_DB_mssql_driver</a></li>
+                                                    <li class="class"><a href="../classes/CI_DB_mssql_forge.html">CI_DB_mssql_forge</a></li>
+                                                    <li class="class"><a href="../classes/CI_DB_mssql_result.html">CI_DB_mssql_result</a></li>
+                                                    <li class="class"><a href="../classes/CI_DB_mssql_utility.html">CI_DB_mssql_utility</a></li>
+                                                    <li class="class"><a href="../classes/CI_DB_mysql_driver.html">CI_DB_mysql_driver</a></li>
+                                                    <li class="class"><a href="../classes/CI_DB_mysql_forge.html">CI_DB_mysql_forge</a></li>
+                                                    <li class="class"><a href="../classes/CI_DB_mysql_result.html">CI_DB_mysql_result</a></li>
+                                                    <li class="class"><a href="../classes/CI_DB_mysql_utility.html">CI_DB_mysql_utility</a></li>
+                                                    <li class="class"><a href="../classes/CI_DB_mysqli_driver.html">CI_DB_mysqli_driver</a></li>
+                                                    <li class="class"><a href="../classes/CI_DB_mysqli_forge.html">CI_DB_mysqli_forge</a></li>
+                                                    <li class="class"><a href="../classes/CI_DB_mysqli_result.html">CI_DB_mysqli_result</a></li>
+                                                    <li class="class"><a href="../classes/CI_DB_mysqli_utility.html">CI_DB_mysqli_utility</a></li>
+                                                    <li class="class"><a href="../classes/CI_DB_oci8_driver.html">CI_DB_oci8_driver</a></li>
+                                                    <li class="class"><a href="../classes/CI_DB_oci8_forge.html">CI_DB_oci8_forge</a></li>
+                                                    <li class="class"><a href="../classes/CI_DB_oci8_result.html">CI_DB_oci8_result</a></li>
+                                                    <li class="class"><a href="../classes/CI_DB_oci8_utility.html">CI_DB_oci8_utility</a></li>
+                                                    <li class="class"><a href="../classes/CI_DB_odbc_driver.html">CI_DB_odbc_driver</a></li>
+                                                    <li class="class"><a href="../classes/CI_DB_odbc_forge.html">CI_DB_odbc_forge</a></li>
+                                                    <li class="class"><a href="../classes/CI_DB_odbc_result.html">CI_DB_odbc_result</a></li>
+                                                    <li class="class"><a href="../classes/CI_DB_odbc_utility.html">CI_DB_odbc_utility</a></li>
+                                                    <li class="class"><a href="../classes/CI_DB_pdo_4d_driver.html">CI_DB_pdo_4d_driver</a></li>
+                                                    <li class="class"><a href="../classes/CI_DB_pdo_4d_forge.html">CI_DB_pdo_4d_forge</a></li>
+                                                    <li class="class"><a href="../classes/CI_DB_pdo_cubrid_driver.html">CI_DB_pdo_cubrid_driver</a></li>
+                                                    <li class="class"><a href="../classes/CI_DB_pdo_cubrid_forge.html">CI_DB_pdo_cubrid_forge</a></li>
+                                                    <li class="class"><a href="../classes/CI_DB_pdo_dblib_driver.html">CI_DB_pdo_dblib_driver</a></li>
+                                                    <li class="class"><a href="../classes/CI_DB_pdo_dblib_forge.html">CI_DB_pdo_dblib_forge</a></li>
+                                                    <li class="class"><a href="../classes/CI_DB_pdo_driver.html">CI_DB_pdo_driver</a></li>
+                                                    <li class="class"><a href="../classes/CI_DB_pdo_firebird_driver.html">CI_DB_pdo_firebird_driver</a></li>
+                                                    <li class="class"><a href="../classes/CI_DB_pdo_firebird_forge.html">CI_DB_pdo_firebird_forge</a></li>
+                                                    <li class="class"><a href="../classes/CI_DB_pdo_forge.html">CI_DB_pdo_forge</a></li>
+                                                    <li class="class"><a href="../classes/CI_DB_pdo_ibm_driver.html">CI_DB_pdo_ibm_driver</a></li>
+                                                    <li class="class"><a href="../classes/CI_DB_pdo_ibm_forge.html">CI_DB_pdo_ibm_forge</a></li>
+                                                    <li class="class"><a href="../classes/CI_DB_pdo_informix_driver.html">CI_DB_pdo_informix_driver</a></li>
+                                                    <li class="class"><a href="../classes/CI_DB_pdo_informix_forge.html">CI_DB_pdo_informix_forge</a></li>
+                                                    <li class="class"><a href="../classes/CI_DB_pdo_mysql_driver.html">CI_DB_pdo_mysql_driver</a></li>
+                                                    <li class="class"><a href="../classes/CI_DB_pdo_mysql_forge.html">CI_DB_pdo_mysql_forge</a></li>
+                                                    <li class="class"><a href="../classes/CI_DB_pdo_oci_driver.html">CI_DB_pdo_oci_driver</a></li>
+                                                    <li class="class"><a href="../classes/CI_DB_pdo_oci_forge.html">CI_DB_pdo_oci_forge</a></li>
+                                                    <li class="class"><a href="../classes/CI_DB_pdo_odbc_driver.html">CI_DB_pdo_odbc_driver</a></li>
+                                                    <li class="class"><a href="../classes/CI_DB_pdo_odbc_forge.html">CI_DB_pdo_odbc_forge</a></li>
+                                                    <li class="class"><a href="../classes/CI_DB_pdo_pgsql_driver.html">CI_DB_pdo_pgsql_driver</a></li>
+                                                    <li class="class"><a href="../classes/CI_DB_pdo_pgsql_forge.html">CI_DB_pdo_pgsql_forge</a></li>
+                                                    <li class="class"><a href="../classes/CI_DB_pdo_result.html">CI_DB_pdo_result</a></li>
+                                                    <li class="class"><a href="../classes/CI_DB_pdo_sqlite_driver.html">CI_DB_pdo_sqlite_driver</a></li>
+                                                    <li class="class"><a href="../classes/CI_DB_pdo_sqlite_forge.html">CI_DB_pdo_sqlite_forge</a></li>
+                                                    <li class="class"><a href="../classes/CI_DB_pdo_sqlsrv_driver.html">CI_DB_pdo_sqlsrv_driver</a></li>
+                                                    <li class="class"><a href="../classes/CI_DB_pdo_sqlsrv_forge.html">CI_DB_pdo_sqlsrv_forge</a></li>
+                                                    <li class="class"><a href="../classes/CI_DB_pdo_utility.html">CI_DB_pdo_utility</a></li>
+                                                    <li class="class"><a href="../classes/CI_DB_postgre_driver.html">CI_DB_postgre_driver</a></li>
+                                                    <li class="class"><a href="../classes/CI_DB_postgre_forge.html">CI_DB_postgre_forge</a></li>
+                                                    <li class="class"><a href="../classes/CI_DB_postgre_result.html">CI_DB_postgre_result</a></li>
+                                                    <li class="class"><a href="../classes/CI_DB_postgre_utility.html">CI_DB_postgre_utility</a></li>
+                                                    <li class="class"><a href="../classes/CI_DB_query_builder.html">CI_DB_query_builder</a></li>
+                                                    <li class="class"><a href="../classes/CI_DB_result.html">CI_DB_result</a></li>
+                                                    <li class="class"><a href="../classes/CI_DB_sqlite3_driver.html">CI_DB_sqlite3_driver</a></li>
+                                                    <li class="class"><a href="../classes/CI_DB_sqlite3_forge.html">CI_DB_sqlite3_forge</a></li>
+                                                    <li class="class"><a href="../classes/CI_DB_sqlite3_result.html">CI_DB_sqlite3_result</a></li>
+                                                    <li class="class"><a href="../classes/CI_DB_sqlite3_utility.html">CI_DB_sqlite3_utility</a></li>
+                                                    <li class="class"><a href="../classes/CI_DB_sqlite_driver.html">CI_DB_sqlite_driver</a></li>
+                                                    <li class="class"><a href="../classes/CI_DB_sqlite_forge.html">CI_DB_sqlite_forge</a></li>
+                                                    <li class="class"><a href="../classes/CI_DB_sqlite_result.html">CI_DB_sqlite_result</a></li>
+                                                    <li class="class"><a href="../classes/CI_DB_sqlite_utility.html">CI_DB_sqlite_utility</a></li>
+                                                    <li class="class"><a href="../classes/CI_DB_sqlsrv_driver.html">CI_DB_sqlsrv_driver</a></li>
+                                                    <li class="class"><a href="../classes/CI_DB_sqlsrv_forge.html">CI_DB_sqlsrv_forge</a></li>
+                                                    <li class="class"><a href="../classes/CI_DB_sqlsrv_result.html">CI_DB_sqlsrv_result</a></li>
+                                                    <li class="class"><a href="../classes/CI_DB_sqlsrv_utility.html">CI_DB_sqlsrv_utility</a></li>
+                                                    <li class="class"><a href="../classes/CI_DB_utility.html">CI_DB_utility</a></li>
+                                                    <li class="class"><a href="../classes/CI_Driver.html">CI_Driver</a></li>
+                                                    <li class="class"><a href="../classes/CI_Driver_Library.html">CI_Driver_Library</a></li>
+                                                    <li class="class"><a href="../classes/CI_Email.html">CI_Email</a></li>
+                                                    <li class="class"><a href="../classes/CI_Encrypt.html">CI_Encrypt</a></li>
+                                                    <li class="class"><a href="../classes/CI_Encryption.html">CI_Encryption</a></li>
+                                                    <li class="class"><a href="../classes/CI_Exceptions.html">CI_Exceptions</a></li>
+                                                    <li class="class"><a href="../classes/CI_Form_validation.html">CI_Form_validation</a></li>
+                                                    <li class="class"><a href="../classes/CI_FTP.html">CI_FTP</a></li>
+                                                    <li class="class"><a href="../classes/CI_Hooks.html">CI_Hooks</a></li>
+                                                    <li class="class"><a href="../classes/CI_Image_lib.html">CI_Image_lib</a></li>
+                                                    <li class="class"><a href="../classes/CI_Input.html">CI_Input</a></li>
+                                                    <li class="class"><a href="../classes/CI_Javascript.html">CI_Javascript</a></li>
+                                                    <li class="class"><a href="../classes/CI_Jquery.html">CI_Jquery</a></li>
+                                                    <li class="class"><a href="../classes/CI_Lang.html">CI_Lang</a></li>
+                                                    <li class="class"><a href="../classes/CI_Loader.html">CI_Loader</a></li>
+                                                    <li class="class"><a href="../classes/CI_Log.html">CI_Log</a></li>
+                                                    <li class="class"><a href="../classes/CI_Migration.html">CI_Migration</a></li>
+                                                    <li class="class"><a href="../classes/CI_Model.html">CI_Model</a></li>
+                                                    <li class="class"><a href="../classes/CI_Output.html">CI_Output</a></li>
+                                                    <li class="class"><a href="../classes/CI_Pagination.html">CI_Pagination</a></li>
+                                                    <li class="class"><a href="../classes/CI_Parser.html">CI_Parser</a></li>
+                                                    <li class="class"><a href="../classes/CI_Profiler.html">CI_Profiler</a></li>
+                                                    <li class="class"><a href="../classes/CI_Router.html">CI_Router</a></li>
+                                                    <li class="class"><a href="../classes/CI_Security.html">CI_Security</a></li>
+                                                    <li class="class"><a href="../classes/CI_Session.html">CI_Session</a></li>
+                                                    <li class="class"><a href="../classes/CI_Session_database_driver.html">CI_Session_database_driver</a></li>
+                                                    <li class="class"><a href="../classes/CI_Session_driver.html">CI_Session_driver</a></li>
+                                                    <li class="class"><a href="../classes/CI_Session_files_driver.html">CI_Session_files_driver</a></li>
+                                                    <li class="class"><a href="../classes/CI_Session_memcached_driver.html">CI_Session_memcached_driver</a></li>
+                                                    <li class="class"><a href="../classes/CI_Session_redis_driver.html">CI_Session_redis_driver</a></li>
+                                                    <li class="class"><a href="../classes/CI_Table.html">CI_Table</a></li>
+                                                    <li class="class"><a href="../classes/CI_Trackback.html">CI_Trackback</a></li>
+                                                    <li class="class"><a href="../classes/CI_Typography.html">CI_Typography</a></li>
+                                                    <li class="class"><a href="../classes/CI_Unit_test.html">CI_Unit_test</a></li>
+                                                    <li class="class"><a href="../classes/CI_Upload.html">CI_Upload</a></li>
+                                                    <li class="class"><a href="../classes/CI_URI.html">CI_URI</a></li>
+                                                    <li class="class"><a href="../classes/CI_User_agent.html">CI_User_agent</a></li>
+                                                    <li class="class"><a href="../classes/CI_Utf8.html">CI_Utf8</a></li>
+                                                    <li class="class"><a href="../classes/CI_Xmlrpc.html">CI_Xmlrpc</a></li>
+                                                    <li class="class"><a href="../classes/CI_Xmlrpcs.html">CI_Xmlrpcs</a></li>
+                                                    <li class="class"><a href="../classes/CI_Zip.html">CI_Zip</a></li>
+                                                    <li class="class"><a href="../classes/Curl.html">Curl</a></li>
+                                                    <li class="class"><a href="../classes/Curl_lib.html">Curl_lib</a></li>
+                                                    <li class="class"><a href="../classes/CurlResponse.html">CurlResponse</a></li>
+                                                    <li class="class"><a href="../classes/Format.html">Format</a></li>
+                                                    <li class="class"><a href="../classes/Home.html">Home</a></li>
+                                                    <li class="class"><a href="../classes/Init.html">Init</a></li>
+                                                    <li class="class"><a href="../classes/Main.html">Main</a></li>
+                                                    <li class="class"><a href="../classes/Migration_create_table_api_access.html">Migration_create_table_api_access</a></li>
+                                                    <li class="class"><a href="../classes/Migration_create_table_api_keys.html">Migration_create_table_api_keys</a></li>
+                                                    <li class="class"><a href="../classes/Migration_create_table_api_limits.html">Migration_create_table_api_limits</a></li>
+                                                    <li class="class"><a href="../classes/Migration_create_table_api_logs.html">Migration_create_table_api_logs</a></li>
+                                                    <li class="class"><a href="../classes/Migration_create_table_users.html">Migration_create_table_users</a></li>
+                                                    <li class="class"><a href="../classes/ProfilerEnabler.html">ProfilerEnabler</a></li>
+                                                    <li class="class"><a href="../classes/REST_Controller.html">REST_Controller</a></li>
+                                                    <li class="class"><a href="../classes/Sendmail.html">Sendmail</a></li>
+                                                    <li class="class"><a href="../classes/Template.html">Template</a></li>
+                                                    <li class="class"><a href="../classes/Upload_wrapper.html">Upload_wrapper</a></li>
+                                                    <li class="class"><a href="../classes/XML_RPC_Client.html">XML_RPC_Client</a></li>
+                                                    <li class="class"><a href="../classes/XML_RPC_Message.html">XML_RPC_Message</a></li>
+                                                    <li class="class"><a href="../classes/XML_RPC_Response.html">XML_RPC_Response</a></li>
+                                                    <li class="class"><a href="../classes/XML_RPC_Values.html">XML_RPC_Values</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        </div>
+    </section>
+    <section class="row-fluid">
+        <div class="span10 offset2">
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <nav>
+                                                <a href="../namespaces/default.html">\</a> <i class="icon-level-up"></i>
+                                            </nav>
+                    <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal"><i class="icon-code"></i></a>
+
+                    <h1><small>\</small>CI_Encryption</h1>
+                    <p><em>CodeIgniter Encryption Class</em></p>
+                    <p>Provides two-way keyed encryption via PHP's MCrypt and/or OpenSSL extensions.</p>
+                    
+                                        
+                    <section id="summary">
+                        <h2>Summary</h2>
+                        <section class="row-fluid heading">
+                            <section class="span4">
+                                <a href="#methods">Methods</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#properties">Properties</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#constants">Constants</a>
+                            </section>
+                        </section>
+                        <section class="row-fluid public">
+                            <section class="span4">
+                                                                    <a href="../classes/CI_Encryption.html#method___construct" class="">__construct()</a><br />
+                                                                    <a href="../classes/CI_Encryption.html#method_initialize" class="">initialize()</a><br />
+                                                                    <a href="../classes/CI_Encryption.html#method_create_key" class="">create_key()</a><br />
+                                                                    <a href="../classes/CI_Encryption.html#method_encrypt" class="">encrypt()</a><br />
+                                                                    <a href="../classes/CI_Encryption.html#method_decrypt" class="">decrypt()</a><br />
+                                                                    <a href="../classes/CI_Encryption.html#method_hkdf" class="">hkdf()</a><br />
+                                                                    <a href="../classes/CI_Encryption.html#method___get" class="">__get()</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No public properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No constants found</em>
+                                                            </section>
+                        </section>
+                        <section class="row-fluid protected">
+                            <section class="span4">
+                                                                    <a href="../classes/CI_Encryption.html#method__mcrypt_initialize" class="">_mcrypt_initialize()</a><br />
+                                                                    <a href="../classes/CI_Encryption.html#method__openssl_initialize" class="">_openssl_initialize()</a><br />
+                                                                    <a href="../classes/CI_Encryption.html#method__mcrypt_encrypt" class="">_mcrypt_encrypt()</a><br />
+                                                                    <a href="../classes/CI_Encryption.html#method__openssl_encrypt" class="">_openssl_encrypt()</a><br />
+                                                                    <a href="../classes/CI_Encryption.html#method__mcrypt_decrypt" class="">_mcrypt_decrypt()</a><br />
+                                                                    <a href="../classes/CI_Encryption.html#method__openssl_decrypt" class="">_openssl_decrypt()</a><br />
+                                                                    <a href="../classes/CI_Encryption.html#method__get_params" class="">_get_params()</a><br />
+                                                                    <a href="../classes/CI_Encryption.html#method__mcrypt_get_handle" class="">_mcrypt_get_handle()</a><br />
+                                                                    <a href="../classes/CI_Encryption.html#method__openssl_get_handle" class="">_openssl_get_handle()</a><br />
+                                                                    <a href="../classes/CI_Encryption.html#method__cipher_alias" class="">_cipher_alias()</a><br />
+                                                                    <a href="../classes/CI_Encryption.html#method_strlen" class="">strlen()</a><br />
+                                                                    <a href="../classes/CI_Encryption.html#method_substr" class="">substr()</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <a href="../classes/CI_Encryption.html#property__cipher" class="">$_cipher</a><br />
+                                                                    <a href="../classes/CI_Encryption.html#property__mode" class="">$_mode</a><br />
+                                                                    <a href="../classes/CI_Encryption.html#property__handle" class="">$_handle</a><br />
+                                                                    <a href="../classes/CI_Encryption.html#property__key" class="">$_key</a><br />
+                                                                    <a href="../classes/CI_Encryption.html#property__driver" class="">$_driver</a><br />
+                                                                    <a href="../classes/CI_Encryption.html#property__drivers" class="">$_drivers</a><br />
+                                                                    <a href="../classes/CI_Encryption.html#property__modes" class="">$_modes</a><br />
+                                                                    <a href="../classes/CI_Encryption.html#property__digests" class="">$_digests</a><br />
+                                                                    <a href="../classes/CI_Encryption.html#property_func_overload" class="">$func_overload</a><br />
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                        <section class="row-fluid private">
+                            <section class="span4">
+                                                                    <em>No private methods found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No private properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                    </section>
+                </div>
+                <aside class="span4 detailsbar">
+                                        
+                    
+                    <dl>
+                        <dt>File</dt>
+                            <dd><a href="../files/system.libraries.Encryption.html"><div class="path-wrapper">system\libraries\Encryption.php</div></a></dd>
+                                                <dt>Package</dt>
+                            <dd><div class="namespace-wrapper">CodeIgniter\Libraries</div></dd>
+                                                <dt>Class hierarchy</dt>
+                            <dd class="hierarchy">
+                                                                                                                                                                    <div class="namespace-wrapper">\CI_Encryption</div>
+                            </dd>
+
+                        
+                        
+                        
+                                                                            <dt>See also</dt>
+                                                                                        <dd><a href="https://codeigniter.com/user_guide/libraries/encryption.html"><span class="namespace-wrapper">https://codeigniter.com/user_guide/libraries/encryption.html</span></a></dd>
+                                                    
+                                                                        </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                                            <tr>
+                            <th>
+                                category
+                            </th>
+                            <td>
+                                                                    <p>Libraries</p>
+                                                            </td>
+                        </tr>
+                                            <tr>
+                            <th>
+                                author
+                            </th>
+                            <td>
+                                                                    <p>Andrey Andreev</p>
+                                                            </td>
+                        </tr>
+                                        </table>
+                </aside>
+            </div>
+
+                        
+                                    <a id="properties" name="properties"></a>
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <h2>Properties</h2>
+                </div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property__cipher" name="property__cipher" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$_cipher</h3>
+                <pre class="signature">$_cipher : string</pre>
+                <p><em>Encryption cipher</em></p>
+                
+
+                                <h4>Type</h4>
+                string
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property__mode" name="property__mode" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$_mode</h3>
+                <pre class="signature">$_mode : string</pre>
+                <p><em>Cipher mode</em></p>
+                
+
+                                <h4>Type</h4>
+                string
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property__handle" name="property__handle" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$_handle</h3>
+                <pre class="signature">$_handle : mixed</pre>
+                <p><em>Cipher handle</em></p>
+                
+
+                                <h4>Type</h4>
+                mixed
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property__key" name="property__key" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$_key</h3>
+                <pre class="signature">$_key : string</pre>
+                <p><em>Encryption key</em></p>
+                
+
+                                <h4>Type</h4>
+                string
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property__driver" name="property__driver" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$_driver</h3>
+                <pre class="signature">$_driver : string</pre>
+                <p><em>PHP extension to be used</em></p>
+                
+
+                                <h4>Type</h4>
+                string
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property__drivers" name="property__drivers" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$_drivers</h3>
+                <pre class="signature">$_drivers : array</pre>
+                <p><em>List of usable drivers (PHP extensions)</em></p>
+                
+
+                                <h4>Type</h4>
+                array
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property__modes" name="property__modes" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$_modes</h3>
+                <pre class="signature">$_modes : array</pre>
+                <p><em>List of available modes</em></p>
+                
+
+                                <h4>Type</h4>
+                array
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property__digests" name="property__digests" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$_digests</h3>
+                <pre class="signature">$_digests : array</pre>
+                <p><em>List of supported HMAC algorithms</em></p>
+                <p>name =&gt; digest size pairs</p>
+
+                                <h4>Type</h4>
+                array
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_func_overload" name="property_func_overload" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$func_overload</h3>
+                <pre class="signature">$func_overload : boolean</pre>
+                <p><em>mbstring.func_overload flag</em></p>
+                
+
+                                <h4>Type</h4>
+                boolean
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                            
+                                    <a id="methods" name="methods"></a>
+            <div class="row-fluid">
+                <div class="span8 content class"><h2>Methods</h2></div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method___construct" name="method___construct" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">__construct()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">__construct(array  <span class="argument">$params = array()</span>) : void</pre>
+                <p><em>Class constructor</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>array</td>
+                                <td>$params </td>
+                                <td><p>Configuration parameters</p></td>
+                            </tr>
+                                            </table>
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/xampp/htdocs/ci_te/phpdoc.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/xampp/htdocs/ci_te/phpdoc.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_initialize" name="method_initialize" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">initialize()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">initialize(array  <span class="argument">$params</span>) : \CI_Encryption</pre>
+                <p><em>Initialize</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>array</td>
+                                <td>$params </td>
+                                <td><p>Configuration parameters</p></td>
+                            </tr>
+                                            </table>
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/xampp/htdocs/ci_te/phpdoc.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/xampp/htdocs/ci_te/phpdoc.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                                    <h4>Returns</h4>
+                    <a href="../classes/CI_Encryption.html">\CI_Encryption</a>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_create_key" name="method_create_key" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">create_key()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">create_key(integer  <span class="argument">$length</span>) : string</pre>
+                <p><em>Create a random key</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>integer</td>
+                                <td>$length </td>
+                                <td><p>Output length</p></td>
+                            </tr>
+                                            </table>
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/xampp/htdocs/ci_te/phpdoc.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/xampp/htdocs/ci_te/phpdoc.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                                    <h4>Returns</h4>
+                    string
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_encrypt" name="method_encrypt" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">encrypt()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">encrypt(string  <span class="argument">$data</span>, array  <span class="argument">$params = NULL</span>) : string</pre>
+                <p><em>Encrypt</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$data </td>
+                                <td><p>Input data</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$params </td>
+                                <td><p>Input parameters</p></td>
+                            </tr>
+                                            </table>
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/xampp/htdocs/ci_te/phpdoc.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/xampp/htdocs/ci_te/phpdoc.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                                    <h4>Returns</h4>
+                    string
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_decrypt" name="method_decrypt" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">decrypt()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">decrypt(string  <span class="argument">$data</span>, array  <span class="argument">$params = NULL</span>) : string</pre>
+                <p><em>Decrypt</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$data </td>
+                                <td><p>Encrypted data</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$params </td>
+                                <td><p>Input parameters</p></td>
+                            </tr>
+                                            </table>
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/xampp/htdocs/ci_te/phpdoc.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/xampp/htdocs/ci_te/phpdoc.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                                    <h4>Returns</h4>
+                    string
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_hkdf" name="method_hkdf" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">hkdf()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">hkdf(  <span class="argument">$key</span>,   <span class="argument">$digest = &#039;sha512&#039;</span>,   <span class="argument">$salt = NULL</span>,   <span class="argument">$length = NULL</span>,   <span class="argument">$info = &#039;&#039;</span>) : string</pre>
+                <p><em>HKDF</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$key </td>
+                                <td><p>Input key</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>$digest </td>
+                                <td><p>A SHA-2 hashing algorithm</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>$salt </td>
+                                <td><p>Optional salt</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>$length </td>
+                                <td><p>Output length (defaults to the selected digest size)</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>$info </td>
+                                <td><p>Optional context/application-specific info</p></td>
+                            </tr>
+                                            </table>
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/xampp/htdocs/ci_te/phpdoc.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/xampp/htdocs/ci_te/phpdoc.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                                    <h4>Returns</h4>
+                    string
+                                            &mdash; <p>A pseudo-random key</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                                            <dt>See also</dt>
+                                                                <dd><a href="https://tools.ietf.org/rfc/rfc5869.txt"><span class="namespace-wrapper">https://tools.ietf.org/rfc/rfc5869.txt</span></a></dd>
+                                                                </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method___get" name="method___get" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">__get()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">__get(string  <span class="argument">$key</span>) : mixed</pre>
+                <p><em>__get() magic</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$key </td>
+                                <td><p>Property name</p></td>
+                            </tr>
+                                            </table>
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/xampp/htdocs/ci_te/phpdoc.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/xampp/htdocs/ci_te/phpdoc.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                                    <h4>Returns</h4>
+                    mixed
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method__mcrypt_initialize" name="method__mcrypt_initialize" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">_mcrypt_initialize()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">_mcrypt_initialize(array  <span class="argument">$params</span>) : void</pre>
+                <p><em>Initialize MCrypt</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>array</td>
+                                <td>$params </td>
+                                <td><p>Configuration parameters</p></td>
+                            </tr>
+                                            </table>
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/xampp/htdocs/ci_te/phpdoc.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/xampp/htdocs/ci_te/phpdoc.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method__openssl_initialize" name="method__openssl_initialize" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">_openssl_initialize()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">_openssl_initialize(array  <span class="argument">$params</span>) : void</pre>
+                <p><em>Initialize OpenSSL</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>array</td>
+                                <td>$params </td>
+                                <td><p>Configuration parameters</p></td>
+                            </tr>
+                                            </table>
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/xampp/htdocs/ci_te/phpdoc.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/xampp/htdocs/ci_te/phpdoc.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method__mcrypt_encrypt" name="method__mcrypt_encrypt" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">_mcrypt_encrypt()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">_mcrypt_encrypt(string  <span class="argument">$data</span>, array  <span class="argument">$params</span>) : string</pre>
+                <p><em>Encrypt via MCrypt</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$data </td>
+                                <td><p>Input data</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$params </td>
+                                <td><p>Input parameters</p></td>
+                            </tr>
+                                            </table>
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/xampp/htdocs/ci_te/phpdoc.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/xampp/htdocs/ci_te/phpdoc.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                                    <h4>Returns</h4>
+                    string
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method__openssl_encrypt" name="method__openssl_encrypt" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">_openssl_encrypt()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">_openssl_encrypt(string  <span class="argument">$data</span>, array  <span class="argument">$params</span>) : string</pre>
+                <p><em>Encrypt via OpenSSL</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$data </td>
+                                <td><p>Input data</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$params </td>
+                                <td><p>Input parameters</p></td>
+                            </tr>
+                                            </table>
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/xampp/htdocs/ci_te/phpdoc.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/xampp/htdocs/ci_te/phpdoc.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                                    <h4>Returns</h4>
+                    string
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method__mcrypt_decrypt" name="method__mcrypt_decrypt" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">_mcrypt_decrypt()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">_mcrypt_decrypt(string  <span class="argument">$data</span>, array  <span class="argument">$params</span>) : string</pre>
+                <p><em>Decrypt via MCrypt</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$data </td>
+                                <td><p>Encrypted data</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$params </td>
+                                <td><p>Input parameters</p></td>
+                            </tr>
+                                            </table>
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/xampp/htdocs/ci_te/phpdoc.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/xampp/htdocs/ci_te/phpdoc.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                                    <h4>Returns</h4>
+                    string
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method__openssl_decrypt" name="method__openssl_decrypt" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">_openssl_decrypt()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">_openssl_decrypt(string  <span class="argument">$data</span>, array  <span class="argument">$params</span>) : string</pre>
+                <p><em>Decrypt via OpenSSL</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$data </td>
+                                <td><p>Encrypted data</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$params </td>
+                                <td><p>Input parameters</p></td>
+                            </tr>
+                                            </table>
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/xampp/htdocs/ci_te/phpdoc.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/xampp/htdocs/ci_te/phpdoc.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                                    <h4>Returns</h4>
+                    string
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method__get_params" name="method__get_params" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">_get_params()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">_get_params(array  <span class="argument">$params</span>) : array</pre>
+                <p><em>Get params</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>array</td>
+                                <td>$params </td>
+                                <td><p>Input parameters</p></td>
+                            </tr>
+                                            </table>
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/xampp/htdocs/ci_te/phpdoc.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/xampp/htdocs/ci_te/phpdoc.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                                    <h4>Returns</h4>
+                    array
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method__mcrypt_get_handle" name="method__mcrypt_get_handle" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">_mcrypt_get_handle()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">_mcrypt_get_handle(string  <span class="argument">$cipher</span>, string  <span class="argument">$mode</span>) : resource</pre>
+                <p><em>Get MCrypt handle</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$cipher </td>
+                                <td><p>Cipher name</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$mode </td>
+                                <td><p>Encryption mode</p></td>
+                            </tr>
+                                            </table>
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/xampp/htdocs/ci_te/phpdoc.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/xampp/htdocs/ci_te/phpdoc.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                                    <h4>Returns</h4>
+                    resource
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method__openssl_get_handle" name="method__openssl_get_handle" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">_openssl_get_handle()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">_openssl_get_handle(string  <span class="argument">$cipher</span>, string  <span class="argument">$mode</span>) : string</pre>
+                <p><em>Get OpenSSL handle</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$cipher </td>
+                                <td><p>Cipher name</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$mode </td>
+                                <td><p>Encryption mode</p></td>
+                            </tr>
+                                            </table>
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/xampp/htdocs/ci_te/phpdoc.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/xampp/htdocs/ci_te/phpdoc.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                                    <h4>Returns</h4>
+                    string
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method__cipher_alias" name="method__cipher_alias" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">_cipher_alias()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">_cipher_alias(string  <span class="argument">$cipher</span>) : void</pre>
+                <p><em>Cipher alias</em></p>
+                <p>Tries to translate cipher names between MCrypt and OpenSSL's &quot;dialects&quot;.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$cipher </td>
+                                <td><p>Cipher name</p></td>
+                            </tr>
+                                            </table>
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/xampp/htdocs/ci_te/phpdoc.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/xampp/htdocs/ci_te/phpdoc.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_strlen" name="method_strlen" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">strlen()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">strlen(string  <span class="argument">$str</span>) : integer</pre>
+                <p><em>Byte-safe strlen()</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$str </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/xampp/htdocs/ci_te/phpdoc.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/xampp/htdocs/ci_te/phpdoc.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                                    <h4>Returns</h4>
+                    integer
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                            <span class="label label-info">static</span>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_substr" name="method_substr" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">substr()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">substr(string  <span class="argument">$str</span>, integer  <span class="argument">$start</span>, integer  <span class="argument">$length = NULL</span>) : string</pre>
+                <p><em>Byte-safe substr()</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$str </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td>integer</td>
+                                <td>$start </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td>integer</td>
+                                <td>$length </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/xampp/htdocs/ci_te/phpdoc.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/xampp/htdocs/ci_te/phpdoc.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                                    <h4>Returns</h4>
+                    string
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                            <span class="label label-info">static</span>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                                    </div>
+    </section>
+
+    <div id="source-view" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="source-view-label" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="source-view-label">Encryption.php</h3>
+        </div>
+        <div class="modal-body">
+            <pre data-src="../files/system\libraries\Encryption.php.txt" class="language-php line-numbers"></pre>
+        </div>
+    </div>
+
+    <footer class="row-fluid">
+        <section class="span10 offset2">
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <section class="row-fluid footer-sections">
+                        <section class="span4">
+                                                        <h1><i class="icon-code"></i></h1>
+                            <div>
+                                <ul>
+                                                                    </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-bar-chart"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../graphs/class.html">Class Hierarchy Diagram</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-pushpin"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../reports/errors.html">Errors</a></li>
+                                    <li><a href="../reports/markers.html">Markers</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                    </section>
+                </section>
+            </section>
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <hr />
+                    Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
+                    on April 29th, 2018 at 04:08.
+                </section>
+            </section>
+        </section>
+    </footer>
+</div>
+
+</body>
+</html>
