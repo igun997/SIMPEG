@@ -24,6 +24,49 @@ class Pegawai extends CI_Controller{
  	 *
  	 * @return void
 	 */
+   public function jadwal_del($id)
+   {
+     $this->main->setTable("penjadwalan");
+     $d = $this->main->delete(["id_penjadwalan"=>$id]);
+     redirect($_SERVER["HTTP_REFERER"]);
+   }
+   public function jadwal($nip)
+   {
+     if (isset($_POST["status"])) {
+       $d = $this->input->post(null,true);
+       $this->main->setTable("penjadwalan");
+       $ins = $this->main->insert($d);
+       if ($ins) {
+         $this->session->set_flashdata("message","<div class='alert alert-success'>Data Sukses Di Simpan</div>");
+       }else {
+         $this->session->set_flashdata("message","<div class='alert alert-danger'>Data Gagal Di Simpan</div>");
+       }
+     }
+     $this->template->setFolder("admin");
+     $this->template->defaultStyle("front");
+     $this->main->setTable("users");
+     $s = $this->main->get(["nip"=>$nip]);
+     if ($s->num_rows() > 0) {
+       $row = $s->row();
+       $this->main->setTable("penjadwalan");
+       $x = $this->main->get();
+       $rs = $x->result_array();
+       foreach ($rs as $key => &$value) {
+         $value["no"] = ($key+1);
+         $value["tanggal"] = date("d-m-Y",strtotime($value["tanggal"]));
+         $value["status"] = ($value["status"] == 0)?"Hadir":"Libur";
+       }
+       $build = [
+         "block_title"=>"Jadwal Kerja - ".$row->nama,
+         "data_jadwal"=>$rs,
+         "nip"=>$nip,
+         "msg"=>$this->session->flashdata("message")
+       ];
+       $this->template->renderHTML(['head','pegawai_jadwal','foot'],['title'=>"Jadwal Kerja - ".$row->nama,'other'=>$build]);
+     }else {
+       redirect($_SERVER["HTTP_REFERER"]);
+     }
+   }
    public function index()
    {
      $this->template->setFolder("admin");

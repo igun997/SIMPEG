@@ -90,17 +90,6 @@
                 </select>
               </div>
               <div class="form-group">
-                <label >SIP Kerja</label>
-                <div class="form-group">
-                  <input type="text" class="form-control" disabled value="{sip}" placeholder="">
-                </div>
-                <select class="form-control" name="sip">
-                  <option value="" selected>== Pilih ==</option>
-                  <option value="1">SIP 1</option>
-                  <option value="2">SIP 2</option>
-                </select>
-              </div>
-              <div class="form-group">
                 <button type="submit" class="btn btn-success">
                   Simpan Data
                 </button>

@@ -52,6 +52,7 @@
                         <a class="dropdown-item" href="<?= base_url("admin/pegawai/ubah/") ?>{nip}">Ubah</a>
                         <a class="dropdown-item" href="<?= base_url("admin/pegawai/delete/") ?>{nip}">Hapus</a>
                         <a class="dropdown-item" href="<?= base_url("admin/pegawai/tunjangan/") ?>{nip}">Tambah Tunjangan</a>
+                        <a class="dropdown-item" href="<?= base_url("admin/pegawai/jadwal/") ?>{nip}">Jadwal</a>
                       </div>
                     </div>
                   </td>

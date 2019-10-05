@@ -230,6 +230,9 @@
         viewMode: "months",
         minViewMode: "months"
       });
+      $(".datetime9").datepicker({
+        format:"yyyy-mm-dd",
+      });
       $(".datetime1").datepicker({
         format:"yyyy-mm-dd",
         "onSelect": function(date) {
