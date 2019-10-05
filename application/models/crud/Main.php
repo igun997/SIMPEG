@@ -231,77 +231,76 @@ class Main extends CI_Model{
       $search = date("Y-m-d",$time);
       $match = $this->main->get(["nip"=>$nip,"tanggal"=>$search]);
       if ($match->num_rows() > 0) {
-        if ($plain == false) {
-          $abs = "<td style='background-color:red;color:#fff'> <i class='fas fa-times'></i> </td>";
-        }else {
-          $abs = "X";
-        }
-        foreach ($getdata->result() as $key => $value) {
-          $e = explode(" ",$value->masuk);
-          if ($mondaypass == true) {
-            if (date("l",strtotime($e[0])) == "Sunday") {
-              continue;
-            }
-          }
-          $e = $e[0];
-          if ($e == $v) {
-            $m++;
-            $telat = $telat + $value->telat;
-            $d[] = $value->telat;
-            $start = strtotime($value->masuk);
-            $end = strtotime($value->keluar);
-            if ($end > $start) {
-              $this->main->setJoin([
-                "table"=>"users",
-                "join"=>[
-                  "divisi|divisi.id_divisi = users.id_divisi|null"
-                ]
-              ]);
-              $ob = $this->main->get(["users.nip"=>$value->nip])->row();
-              $sip = $ob->sip;
-              $jaker = $ob->waktu_kerja;
-              $sipdiv = strtotime($e." ".$ob->{"jam_masuk".$sip});
-              $keluarjam = date("Y-m-d",strtotime("+ ".$jaker." hours",$sipdiv));
-              $kstrto = strtotime($keluarjam);
-              $koretlah[] = $kstrto;
-              if ($end > $kstrto) {
-                $overtimedate++;
-              }
-            }
-            if ($plain == false) {
-              if ($value->type == "sakit") {
-                $abs = "<td style='background-color:yellow;'> <i class='fas fa-medkit'></i> </td>";
-                $sakit++;
-              }elseif ($value->type == "ijin") {
-                $ij++;
-                $abs = "<td style='background-color:green;color:#fff'> <i class='fas fa-info'></i> </td>";
-              }elseif($value->type == "normal") {
-                $abs = "<td> <i class='fas fa-check' ></i> </td>";
-              }elseif($value->type == "cuti") {
-                $cuti++;
-                $abs = "<td> <i class='fas fa-check-double'></i> </td>";
-              }
-            }else {
-              if ($value->type == "sakit") {
-                $abs = "S";
-                $sakit++;
-              }elseif ($value->type == "ijin") {
-                $ij++;
-                $abs = "I";
-              }elseif($value->type == "normal") {
-                $abs = "*";
-              }elseif($value->type == "cuti") {
-                $cuti++;
-                $abs = "C";
-              }
-            }
-            break;
-          }
-        }
-        
-        $x = date("m/d",$time);
         $rows = $match->row();
         if ($rows->status != 1) {
+          if ($plain == false) {
+            $abs = "<td style='background-color:red;color:#fff'> <i class='fas fa-times'></i> </td>";
+          }else {
+            $abs = "X";
+          }
+          foreach ($getdata->result() as $key => $value) {
+            $e = explode(" ",$value->masuk);
+            if ($mondaypass == true) {
+              if (date("l",strtotime($e[0])) == "Sunday") {
+                continue;
+              }
+            }
+            $e = $e[0];
+            if ($e == $v) {
+              $m++;
+              $telat = $telat + $value->telat;
+              $d[] = $value->telat;
+              $start = strtotime($value->masuk);
+              $end = strtotime($value->keluar);
+              if ($end > $start) {
+                $this->main->setJoin([
+                  "table"=>"users",
+                  "join"=>[
+                    "divisi|divisi.id_divisi = users.id_divisi|null"
+                  ]
+                ]);
+                $ob = $this->main->get(["users.nip"=>$value->nip])->row();
+                $sip = $rows->sip;
+                $jaker = $ob->waktu_kerja;
+                $sipdiv = strtotime($e." ".$ob->{"jam_masuk".$sip});
+                $keluarjam = date("Y-m-d",strtotime("+ ".$jaker." hours",$sipdiv));
+                $kstrto = strtotime($keluarjam);
+                $koretlah[] = $kstrto;
+                if ($end > $kstrto) {
+                  $overtimedate++;
+                }
+              }
+              if ($plain == false) {
+                if ($value->type == "sakit") {
+                  $abs = "<td style='background-color:yellow;'> <i class='fas fa-medkit'></i> </td>";
+                  $sakit++;
+                }elseif ($value->type == "ijin") {
+                  $ij++;
+                  $abs = "<td style='background-color:green;color:#fff'> <i class='fas fa-info'></i> </td>";
+                }elseif($value->type == "normal") {
+                  $abs = "<td> <i class='fas fa-check' ></i> </td>";
+                }elseif($value->type == "cuti") {
+                  $cuti++;
+                  $abs = "<td> <i class='fas fa-check-double'></i> </td>";
+                }
+              }else {
+                if ($value->type == "sakit") {
+                  $abs = "S";
+                  $sakit++;
+                }elseif ($value->type == "ijin") {
+                  $ij++;
+                  $abs = "I";
+                }elseif($value->type == "normal") {
+                  $abs = "*";
+                }elseif($value->type == "cuti") {
+                  $cuti++;
+                  $abs = "C";
+                }
+              }
+              break;
+            }
+          }
+          $x = date("m/d",$time);
           if ($mondaypass == true) {
             if (date("l",strtotime($v)) != "Sunday") {
               $absen[$x] = $abs;
