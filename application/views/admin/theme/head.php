@@ -70,6 +70,12 @@
         </a>
       </li>
       <li class="nav-item">
+        <a class="nav-link pb-0" href="<?= $base("penjadwalan") ?>">
+          <i class="fas fa-calendar-check"></i>
+          <span>Penjadwalan</span>
+        </a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link pb-0" href="<?= $base("penggajian") ?>">
           <i class="fas fa-calculator"></i>
           <span>Penggajian</span>

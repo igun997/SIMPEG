@@ -18,9 +18,7 @@
                 <th>NIP</th>
                 <th>Nama Pegawai</th>
                 <th>Foto</th>
-                <th>Email</th>
                 <th>Nomor HP</th>
-                <th>JK</th>
                 <th>Alamat</th>
                 <th>Pendidikan</th>
                 <th>Tgl Lahir</th>
@@ -35,9 +33,7 @@
                   <td>
                     <img src="<?= base_url("upload/") ?>{foto}" style="width:auto;height:100px" alt="">
                   </td>
-                  <td>{email}</td>
                   <td>{nomor_hp}</td>
-                  <td>{jk}</td>
                   <td>{alamat}</td>
                   <td>{pendidikan}</td>
                   <td>{tgl_lhr}</td>
