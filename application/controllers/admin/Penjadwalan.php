@@ -14,13 +14,20 @@ class Penjadwalan extends CI_Controller{
 
   function index()
   {
+
     $this->template->setFolder("admin");
     $this->template->defaultStyle("front");
+    $this->template->setjs([
+      base_url("assets/main/penjadwalan.js")
+    ],true);
     $this->main->setTable("divisi");
     $data = $this->main->get();
     $this->main->setTable("setting");
     $r = $this->main->get(["meta_key"=>"tgl_penggajian"])->row()->meta_value;
     $date = $this->main->loopDate(date("Y-m-01"),date("Y-m-".$r));
+    if (isset($_GET["bulan"])) {
+      $date = $this->main->loopDate(date("Y-".$_GET["bulan"]."-01"),date("Y-".$_GET["bulan"]."-".$r));
+    }
     $d = [];
     foreach ($date as $key => $value) {
       $d[] = ["d"=>date("d/m",strtotime($value))];

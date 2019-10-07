@@ -18,6 +18,9 @@
 </head>
 
 <body id="page-top">
+  <script type="text/javascript">
+    const base_url = "<?= base_url() ?>";
+  </script>
   <style media="screen">
     .bg-image {
       background-image: url(<?= base_url("assets/img/sidebar.jfif") ?>) ;

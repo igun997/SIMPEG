@@ -28,10 +28,89 @@ class Api extends REST_Controller
  	 *
  	 * @return json
 	 */
-
+   public function updateabsen_post()
+   {
+     $d = $this->dpost;
+     $this->main->setTable("penjadwalan");
+     $s = $this->main->get(["id_penjadwalan"=>$d["id"]]);
+     if ($s->num_rows() > 0) {
+       if ($d["simbol"] == "P") {
+         $status = 0;
+         $sip = 2;
+       }elseif ($d["simbol"] == "S") {
+         $status = 1;
+         $sip = 0;
+       }elseif ($d["simbol"] == "X") {
+         $status = 0;
+         $sip = 1;
+       }
+       $sa = $this->main->update(["sip"=>$sip,"status"=>$status],["id_penjadwalan"=>$d["id"]]);
+       if ($sa) {
+         $this->response(["status"=>1]);
+       }else {
+         $this->response(["status"=>0]);
+       }
+     }else {
+       $this->response(["status"=>0]);
+     }
+   }
+   public function setabsen_post()
+   {
+     $d = $this->dpost;
+     $this->main->setTable("penjadwalan");
+     $s = $this->main->insert($d);
+     if ($s) {
+       $this->response(["status"=>1]);
+     }else {
+       $this->response(["status"=>0]);
+     }
+   }
+   public function getmember_get($id,$bulan = null)
+   {
+     $this->main->setTable("setting");
+     $r = $this->main->get(["meta_key"=>"tgl_penggajian"])->row()->meta_value;
+     if ($bulan == null) {
+       $date = $this->main->loopDate(date("Y-m-01"),date("Y-m-".$r));
+     }else {
+       $date = $this->main->loopDate(date("Y-".$bulan."-01"),date("Y-".$bulan."-".$r));
+     }
+     $this->main->setTable("users");
+     $get = $this->main->get(["id_divisi"=>$id,"level"=>"karyawan"]);
+     if ($get->num_rows() > 0) {
+       $member = [];
+       foreach ($get->result() as $key => $value) {
+         $temp = ["nip"=>$value->nip,"nama_lengkap"=>$value->nama];
+         $abs = [];
+         for ($i=0; $i < count($date) ; $i++) {
+           $this->main->setTable("penjadwalan");
+           $rCek = $this->main->get(["nip"=>$value->nip,"tanggal"=>$date[$i]]);
+           if ($rCek->num_rows() > 0) {
+             $rCecRow = $rCek->row();
+             if ($rCecRow->sip == 1) {
+               $rLabel = "P";
+             }else {
+               $rLabel = "S";
+             }
+             if ($rCecRow->status == 0) {
+               $abs[] = ["label"=>$rLabel,"id"=>$rCecRow->id_penjadwalan];
+             }else {
+               $abs[] = ["label"=>"L","id"=>$rCecRow->id_penjadwalan];
+             }
+           }else {
+             $abs[] = ["label"=>"X","tgl"=>$date[$i]];
+           }
+         }
+         $temp["data"] = $abs;
+         $member[] = $temp;
+       }
+       $this->response($member);
+     }else {
+       $this->response([], 404);
+     }
+   }
     public function index_post()
     {
-        $this->response([], 404);
+      $this->response([], 404);
     }
     /**
    * Initial Method

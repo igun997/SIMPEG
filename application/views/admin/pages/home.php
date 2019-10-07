@@ -95,14 +95,6 @@
 
 
     </div>
-    <div class="col-md-12">
-      <div class="card shadow mb-4">
-        <div class="card-header">
-          Statistik Absensi Karyawan
-        </div>
-        <div class="card-body">
-        </div>
-      </div>
-    </div>
+    
   </div>
 </div>
