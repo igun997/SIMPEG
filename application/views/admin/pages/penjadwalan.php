@@ -25,15 +25,6 @@
         <div class="card-body">
           <div class="col-md-12">
             <div class="form-group">
-              <label>Divisi</label>
-              <select class="form-control" id="divisi">
-                <option value="">== Pilih ==</option>
-                {data_divisi}
-                <option value="{id_divisi}">{nama_divisi}</option>
-                {/data_divisi}
-              </select>
-            </div>
-            <div class="form-group">
               <label>Bulan</label>
               <select class="form-control" id="bulanku">
                 <option value="">== Pilih ==</option>
@@ -49,6 +40,15 @@
                 <option value="10">Oktober</option>
                 <option value="11">November</option>
                 <option value="12">Desember</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Divisi</label>
+              <select class="form-control" id="divisi">
+                <option value="">== Pilih ==</option>
+                {data_divisi}
+                <option value="{id_divisi}">{nama_divisi}</option>
+                {/data_divisi}
               </select>
             </div>
           </div>
