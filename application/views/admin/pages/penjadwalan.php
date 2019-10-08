@@ -54,7 +54,7 @@
           </div>
           <div class="col-md-12">
             <div class="table-responsive">
-              <table border="1" style="font-size:10px;">
+              <table border="1" style="font-size:10px;width:100%">
               <thead>
                 <tr style="white-space: nowrap;">
                   <th>NIP</th>
