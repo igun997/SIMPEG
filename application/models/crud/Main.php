@@ -330,7 +330,11 @@ class Main extends CI_Model{
       $gapok = $getdata->row()->gaji_pokok;
     }
     $totalKerja = count($absen);
-    $pinalti = ($gapok/$totalKerja);
+    if ($gapok != 0) {
+      $pinalti = ($gapok/$totalKerja);
+    }else {
+      $pinalti = 0;
+    }
     $telatminus = ($telat/60) * ($pinalti/24);
     $ijin = (($pinalti/24)*0.75);
     $t = (count($absen) - $m);

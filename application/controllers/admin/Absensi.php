@@ -56,36 +56,72 @@ class Absensi extends CI_Controller{
      $start = date("Y-m-d",strtotime("-1 month",strtotime($end)));
      $this->main->setTable("users");
      $s = $this->main->get(["level"=>"karyawan"]);
+     $dateIt = [];
+     $select = null;
+     $selectT = 0;
      foreach ($s->result() as $keyx => $valuex) {
        $nip = $valuex->nip;
        $absen = $this->main->getAbsen($nip,$start,$end,true,true);
-       $w = [];
-       $w[] = 16;
-       $w[] = 55;
-       $presensi = [];
+       $c = 0;
        foreach ($absen["absen"] as $key => $value) {
-         $header[] = $key;
-         $w[] = 7.5;
-
+         $c++;
        }
-       for($i=0;$i<count($header);$i++)
-       $pdf->Cell($w[$i],7,$header[$i],1,0,'C',true);
-       $pdf->Ln();
-       // Color and font restoration
-       $pdf->SetFillColor(223,230,233);
-       $pdf->SetTextColor(0);
-       $pdf->SetFont('');
-       break;
+       if ($c > $selectT) {
+         $selectT = $c;
+         $select = $nip;
+       }
      }
+
+     $nip = $select;
+     $absen = $this->main->getAbsen($nip,$start,$end,true,true);
+     $w = [];
+     $w[] = 16;
+     $w[] = 55;
+     $presensi = [];
+     foreach ($absen["absen"] as $key => $value) {
+       $header[] = $key;
+       $w[] = 7.5;
+     }
+     for($i=0;$i<count($header);$i++)
+     $pdf->Cell($w[$i],7,$header[$i],1,0,'C',true);
+     $pdf->Ln();
+     // Color and font restoration
+     $pdf->SetFillColor(223,230,233);
+     $pdf->SetTextColor(0);
+     $pdf->SetFont('');
+
      $fill = false;
+     // echo json_encode($this->main->getAbsen("ADM01",$start,$end,true,true));
+     // echo json_encode($header);
+     // exit();
      foreach ($s->result() as $keyx => $valuex) {
 
        $nip = $valuex->nip;
        $absen = $this->main->getAbsen($nip,$start,$end,true,true);
        $pdf->Cell($w[0],6,$valuex->nip,'LR',0,'L',$fill);
        $pdf->cell($w[1],6,$valuex->nama,'LR',0,'L',$fill);
-       foreach ($absen["absen"] as $k => $va) {
-         $pdf->Cell($w[$k+2],6,$va,'LR',0,'C',$fill);
+       if (count($absen["absen"]) > 0) {
+         for ($i=2; $i < count($header) ; $i++) {
+           foreach ($absen["absen"] as $k => $va) {
+             if ($k == $header[$i]) {
+               $pdf->Cell(7.5,6,$va,'LR',0,'C',$fill);
+               $isNUll = false;
+               break;
+             }else {
+               $isNUll = true;
+             }
+           }
+           if ($isNUll) {
+             // code..
+             $pdf->Cell(7.5,6," ",'LR',0,'C',$fill);
+           }
+         }
+       }else {
+         for ($i=0; $i < (count($w)-2) ; $i++) {
+           $pdf->Cell(7.5,6," ",'LR',0,'C',$fill);
+           // foreach ($absen["absen"] as $k => $va) {
+           // }
+         }
        }
        // var_dump($abs)
        // exit();
@@ -105,7 +141,7 @@ class Absensi extends CI_Controller{
      // $pdf->Cell(array_sum($w),0,'','T');
      $pdf->Ln();
      $pdf->Cell(300, 6, 'Rekapitulasi Absensi Pegawai', 0, 1, 'L');
-     $new_w = [20,20,10,10,10,10,10];
+     $new_w = [20,30,10,10,10,10,10];
      $header_w = ["NIP","Nama","Sakit","Ijin","Alfa","Cuti","Hadir"];
      for($i=0;$i<count($header_w);$i++)
      $pdf->Cell($new_w[$i],7,$header_w[$i],1,0,'C',true);
