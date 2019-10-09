@@ -29,16 +29,6 @@
                 <input type="text" class="form-control" name="waktu_kerja" value="{waktu_kerja}" placeholder="">
               </div>
               <div class="form-group">
-                <label >Hari Minggu Libur</label>
-                <input type="text" disabled class="form-control" value="{libur_minggu}">
-                <br>
-                <select class="form-control" name="libur_minggu">
-                  <option value="" selected>== Pilih ==</option>
-                  <option value="ya">Ya</option>
-                  <option value="tidak">Tidak</option>
-                </select>
-              </div>
-              <div class="form-group">
                 <button type="submit" class="btn btn-success">
                   Simpan Data
                 </button>

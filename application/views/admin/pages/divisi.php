@@ -20,7 +20,6 @@
                 <th>Jam Masuk [SIP 1]</th>
                 <th>Jam Masuk [SIP 2]</th>
                 <th>Total Jam Kerja</th>
-                <th>Minggu Libur</th>
                 <th>Aksi</th>
               </thead>
               <tbody>
@@ -32,7 +31,6 @@
                   <td>{jam_masuk1}</td>
                   <td>{jam_masuk2}</td>
                   <td>{waktu_kerja}</td>
-                  <td>{libur_minggu}</td>
                   <td>
                     <div class="dropdown show">
                       <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
